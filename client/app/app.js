@@ -2,6 +2,9 @@
 
 import angular from 'angular';
 // import ngAnimate from 'angular-animate';
+
+import ngMaterial from 'angular-material';
+
 import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
@@ -22,14 +25,15 @@ import admin from './admin';
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
+import todoFocus from './todoFocus/todoFocus.directive';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
 
 import './app.less';
 
-angular.module('ngFullApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter, _Auth,
-  account, admin, 'validation.match', navbar, footer, main, constants, socket, util
+angular.module('ngFullApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', ngMaterial, uiRouter, _Auth,
+  account, admin, 'validation.match', todoFocus, navbar, footer, main, constants, socket, util
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

@@ -25,7 +25,9 @@ import admin from './admin';
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
-import todoFocus from './todoFocus/todoFocus.directive';
+import detail from './detail';
+import post from './post';
+import todoFocus from '../components/todoFocus/todoFocus.directive';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
@@ -33,7 +35,7 @@ import socket from '../components/socket/socket.service';
 import './app.less';
 
 angular.module('ngFullApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', ngMaterial, uiRouter, _Auth,
-  account, admin, 'validation.match', todoFocus, navbar, footer, main, constants, socket, util
+  account, admin, 'validation.match', todoFocus, navbar, footer, main, detail, post, constants, socket, util
 ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

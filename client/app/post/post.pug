@@ -1,0 +1,14 @@
+.container
+  div(layout-gt-sm='row', ng-show='post.isAdmin()')
+    md-input-container.md-block(flex-gt-sm='')
+      label 标题
+      input(ng-model='post.newThing')
+    md-input-container.md-block
+      label 内容
+      textarea(ng-model='post.infoThing', md-maxlength='150', rows='5', md-select-on-focus='')
+
+    //- md-input-container.md-block(flex-gt-sm='')
+    //-   label title
+    //-   input(ng-model='post.infoThing')
+    md-button(ng-click='post.addThing()') 新增
+  md-slider.md-primary(flex='', md-discrete='', ng-model='rating3', step='1', min='1', max='500', aria-label='rating')

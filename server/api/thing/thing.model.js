@@ -7,10 +7,8 @@ var ThingSchema = new mongoose.Schema({
   name: String,
   info: String,
   active: Boolean,
-  creatAt: {
-    type: Date,
-    default: Date.now()
-  }
+  create_at: { type: Date, default: Date.now },
+  update_at: { type: Date, default: Date.now },
 });
 
 registerEvents(ThingSchema);

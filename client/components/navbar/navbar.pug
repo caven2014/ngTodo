@@ -8,7 +8,7 @@ div.navbar.navbar-default.navbar-static-top
         span.icon-bar
       a.navbar-brand(href='/') ng-full
 
-    div#navbar-main.navbar-collapse.collapse(uib-collapse='$ctrl.isCollapsed')
+    div#navbar-main.navbar-collapse.collapse(ng-class='$ctrl.isCollapsed? "": "in"' collapse='$ctrl.isCollapsed')
       ul.nav.navbar-nav
         li(ng-repeat='item in $ctrl.menu', ui-sref-active='active')
           a(ui-sref='{{item.state}}') {{item.title}}
@@ -24,6 +24,9 @@ div.navbar.navbar-default.navbar-static-top
           a(ui-sref='login') Login
 
         li(ng-show='$ctrl.isLoggedIn()')
+          a(ui-sref='post') post
+
+        li(ng-show='$ctrl.isLoggedIn()')
           p.navbar-text Hello {{ $ctrl.getCurrentUser().name }}
 
         li(ng-show='$ctrl.isLoggedIn()', ui-sref-active='active')
@@ -32,3 +35,32 @@ div.navbar.navbar-default.navbar-static-top
 
         li(ng-show='$ctrl.isLoggedIn()')
           a(ui-sref='logout') Logout
+          
+//- .md-toolbar-tools
+//-   md-button.md-icon-button(aria-label='Settings', ng-disabled='true')
+//-     md-icon
+//-       i.fa.fa-bars(aria-hidden='true')
+//- 
+//-   h2(flex='', md-truncate='') ngTodo
+//-   h3(ng-show='$ctrl.isLoggedIn()') 欢迎, {{ $ctrl.getCurrentUser().name }}
+//-   md-button.md-icon-button(aria-label='Favorite')
+//-     md-icon
+//-       i.fa.fa-ellipsis-v(aria-hidden='true')
+//-   md-button.md-icon-button(ng-show='$ctrl.isAdmin()' ui-sref='admin')
+//-     | Admin
+//-   //- md-button.md-icon-button(aria-label='More')
+//-   md-menu-bar
+//-     md-menu
+//-       button(ng-click='$mdMenu.open()')
+//-         | File
+//-       md-menu-content
+//-         md-menu-item(ng-show='$ctrl.isAdmin()')
+//-           md-button(ui-sref='admin')
+//-             | Admin
+//-         md-menu-item(ng-hide='$ctrl.isLoggedIn()')
+//-           md-button(ui-sref='login')
+//-             | 登录
+//-         md-menu-item(ng-show='$ctrl.isLoggedIn()')
+//-           md-button(ui-sref='logout')
+//-             | 登出
+      

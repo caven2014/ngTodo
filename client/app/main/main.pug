@@ -1,24 +1,7 @@
-//- header#banner.hero-unit
-//-   .container
-//-     h1 'Allo, 'Allo!
-//-     p.lead Kick-start your next web app with Angular Fullstack
-//-     img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
-//- md-toolbar.md-hue-2
-//-   .md-toolbar-tools
-//-     md-button.md-icon-button(aria-label='Settings', ng-disabled='true')
-//-       md-icon(md-svg-icon='img/icons/menu.svg')
-//-     h2(flex='', md-truncate='') Toolbar with Disabled/Enabled Icon Buttons
-//-     md-button.md-icon-button(aria-label='Favorite')
-//-       md-icon(md-svg-icon='img/icons/favorite.svg', style='color: greenyellow;')
-//-     md-button.md-icon-button(aria-label='More')
-//-       md-icon(md-svg-icon='img/icons/more_vert.svg')
-
 .container
   .row
     .col-lg-12
-      //- ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6
       md-content.md-padding(layout-xs='column', layout='row')
-        //- li(ng-repeat='thing in $ctrl.awesomeThings', ng-class='{ editing: thing == $ctrl.editedThing }')
         div(flex-xs='', flex-gt-xs='', layout='column')
           md-card(md-theme="default", md-theme-watch='', ng-repeat='thing in $ctrl.awesomeThings', ng-class='{ editing: thing == $ctrl.editedThing }')
             md-card-title
@@ -35,28 +18,8 @@
                 .md-media-sm.card-media
                   img(src='https://avatars0.githubusercontent.com/u/6404894?v=3&s=120')
             md-card-actions(layout='row', layout-align='end center')
-              md-button Action 1
-              md-button(ng-click='$ctrl.deleteThing(thing)') 删除
+              md-button 
+                a(href='/detail/{{ thing._id }}') 详情 
+              md-button(ng-show='$ctrl.isAdmin()', ng-click='$ctrl.deleteThing(thing)') 删除
 
-          //- a.view(href='#', uib-tooltip='{{thing.info}}', ng-dblclick='$ctrl.editThings(thing)')
-          //-   | {{thing.name}}
-          //-   md-tooltip(md-direction='top') {{thing.info}}
-          //-   button.close(type='button', ng-click='$ctrl.deleteThing(thing)') &times;
-          
-  div(layout-gt-sm='row')
-    md-input-container.md-block(flex-gt-sm='')
-      label name
-      input(ng-model='$ctrl.newThing')
-    md-input-container.md-block(flex-gt-sm='')
-      label title
-      input(ng-model='$ctrl.infoThing')
-    md-button(ng-click='$ctrl.addThing()') 新增
-  md-slider.md-primary(flex='', md-discrete='', ng-model='rating3', step='1', min='1', max='500', aria-label='rating')
-
-  //- form.thing-form
-  //-   label Syncs in realtime across clients
-  //-   p.input-group
-  //-     input.form-control(type='text', placeholder='Add a new thing here.', ng-model='$ctrl.newThing')
-  //-     input.form-control(type='text', placeholder='title', ng-model='$ctrl.infoThing')
-  //-     span.input-group-btn
-  //-       button.btn.btn-primary(type='submit', ng-click='$ctrl.addThing()') Add New
+  

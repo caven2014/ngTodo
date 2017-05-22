@@ -10,9 +10,13 @@ export class MainController {
   originalThing = '';
 
   /*@ngInject*/
-  constructor($http, $scope, socket) {
+  constructor($http, $scope, socket, Auth) {
     this.$http = $http;
     this.socket = socket;
+
+    this.isLoggedIn = Auth.isLoggedInSync;
+    this.isAdmin = Auth.isAdminSync;
+    this.getCurrentUser = Auth.getCurrentUserSync;
 
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
@@ -27,22 +31,14 @@ export class MainController {
       });
   }
 
-  addThing() {
-    if(this.newThing) {
-      this.$http.post('/api/things', {
-        name: this.newThing,
-        info: this.infoThing
-      });
-      this.newThing = '';
-      this.infoThing = '';
-    }
-  }
+  
 
   editThings(thing) {
-    this.editedThing = thing;
-		// Clone the original thing to restore it on demand.
-		this.originalThing = angular.extend({}, thing);
-
+    if(this.isAdmin()) {
+      this.editedThing = thing;
+  		// Clone the original thing to restore it on demand.
+  		this.originalThing = angular.extend({}, thing);
+    }
   }
   saveEdit(thing) {
     var self = this;

@@ -5,7 +5,7 @@ import angular from 'angular';
 
 export class NavbarComponent {
   menu = [{
-    title: 'Home',
+    title: '首页',
     state: 'main'
   }];
 
@@ -17,6 +17,8 @@ export class NavbarComponent {
     this.isLoggedIn = Auth.isLoggedInSync;
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
+
+    console.log(this.isLoggedIn())
   }
 
 }

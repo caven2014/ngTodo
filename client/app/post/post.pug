@@ -1,5 +1,6 @@
 .container
-  md-content(layout-padding, ng-show='post.isAdmin()')
+  //- , ng-show='post.isAdmin()'
+  md-content(layout-padding)
     md-input-container.md-block
       label 标题
       input(ng-model='post.newThing', required)

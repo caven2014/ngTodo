@@ -138,7 +138,7 @@
   "scripts": {
     "test": "gulp test",
     "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
-    "start": "NODE_ENV=production MONGODB_URI=mongodb://heroku_wcdj5ws1:heroku_wcdj5ws1@ds145302.mlab.com:45302/heroku_wcdj5ws1 gulp serve:dist",
+    "start": "NODE_ENV=production MONGODB_URI=mongodb://heroku_wcdj5ws1:ej00jbssva25b4hmc9m40lnugf@ds145302.mlab.com:45302/heroku_wcdj5ws1 gulp serve:dist",
     "serve:dist": "gulp serve:dist"
   },
   "private": true

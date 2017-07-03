@@ -18,8 +18,8 @@
                 .md-media-sm.card-media
                   img(src='https://avatars0.githubusercontent.com/u/6404894?v=3&s=120')
             md-card-actions(layout='row', layout-align='end center')
-              md-button 
-                a(href='/detail/{{ thing._id }}') 详情 
+              md-button(ng-click='$ctrl.loveIt(thing)') 点赞
+              md-button(ui-sref='detail({ id: thing._id })') 详情
               md-button(ng-show='$ctrl.isAdmin()', ng-click='$ctrl.deleteThing(thing)') 删除
 
   

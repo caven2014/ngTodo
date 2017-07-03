@@ -31,7 +31,9 @@ export class MainController {
       });
   }
 
-  
+  loveIt(thing) {
+    console.log(thing)
+  }
 
   editThings(thing) {
     if(this.isAdmin()) {

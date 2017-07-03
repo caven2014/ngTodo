@@ -9,6 +9,8 @@ export default class PostController {
   constructor($http, $state, Auth) {
     this.$http = $http;
     this.$state = $state;
+    this.showHints = true;
+    this.sliderNo = 0;
     this.isLoggedIn = Auth.isLoggedInSync;
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
@@ -19,7 +21,7 @@ export default class PostController {
   }
 
   addThing() {
-    if(this.newThing) {
+    if(this.newThing && this.infoThing) {
       this.$http.post('/api/things', {
         name: this.newThing,
         info: this.infoThing

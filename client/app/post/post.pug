@@ -1,14 +1,15 @@
 .container
-  div(layout-gt-sm='row', ng-show='post.isAdmin()')
-    md-input-container.md-block(flex-gt-sm='')
+  md-content(layout-padding, ng-show='post.isAdmin()')
+    md-input-container.md-block
       label 标题
-      input(ng-model='post.newThing')
+      input(ng-model='post.newThing', required)
     md-input-container.md-block
       label 内容
-      textarea(ng-model='post.infoThing', md-maxlength='150', rows='5', md-select-on-focus='')
-
-    //- md-input-container.md-block(flex-gt-sm='')
-    //-   label title
-    //-   input(ng-model='post.infoThing')
+      textarea(ng-model='post.infoThing', required, md-maxlength='150', rows='5', name='content', md-select-on-focus='')
+    
     md-button(ng-click='post.addThing()') 新增
-  md-slider.md-primary(flex='', md-discrete='', ng-model='rating3', step='1', min='1', max='500', aria-label='rating')
+    md-slider-container
+      span sliderNo
+      md-slider#red-slider(flex='', min='0', max='255', ng-model='post.sliderNo', aria-label='red')
+      md-input-container
+        input(flex='', type='number', ng-model='post.sliderNo', aria-label='red', aria-controls='red-slider')
